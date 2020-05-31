@@ -1,10 +1,16 @@
 import React from 'react';
 
-import './Topbar.scss'
+import './Products.scss'
 
 const Topbar = () => {
   return (
-    <div></div>
+    <div className="container">
+      <div className="products">
+        <div className="products__count">
+          <span>22 itens</span>
+        </div>
+      </div>
+    </div>
   )
 }
 

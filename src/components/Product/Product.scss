@@ -1,0 +1,43 @@
+.product__list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.product {
+  width: 100%;
+  margin: 0 2.5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__header {
+  width: 100%;
+}
+.product__image {
+  width: 100%;
+  margin: 0;
+  img {
+    width: 100%;
+  }
+}
+
+.product__info {
+  text-align: center;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.product__prices {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  span {
+    margin: 0 5px;
+  }
+}
+
+.regular__price--has-discount {
+  color: #a7a7a7;
+  text-decoration: line-through;
+}

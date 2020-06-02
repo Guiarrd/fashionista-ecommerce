@@ -1,5 +1,6 @@
 import React from 'react';
 import Product from '../../components/Product'
+import { Link } from 'react-router-dom';
 
 import './Products.scss'
 
@@ -10,7 +11,9 @@ const Products = () => {
         <div className="products__count">
           <span>22 itens</span>
         </div>
-        <Product />
+        <Link to="/produto">
+          <Product />
+        </Link>
       </div>
     </div>
   )

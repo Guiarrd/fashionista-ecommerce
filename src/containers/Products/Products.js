@@ -3,7 +3,7 @@ import Product from '../../components/Product'
 
 import './Products.scss'
 
-const Topbar = () => {
+const Products = () => {
   return (
     <div className="products">
       <div className="container">
@@ -16,4 +16,4 @@ const Topbar = () => {
   )
 }
 
-export default Topbar;
+export default Products;

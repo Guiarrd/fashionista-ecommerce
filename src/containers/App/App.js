@@ -1,6 +1,6 @@
 import React from 'react';
 import Topbar from '../../components/Topbar'
-import Products from '../Products'
+import Routes from '../../routes'
 import { BrowserRouter } from 'react-router-dom';
 import ProductProfile from '../ProductProfile'
 
@@ -11,7 +11,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Topbar />
-        <Products />
+        <Routes />
       </BrowserRouter>
     </div>
   );

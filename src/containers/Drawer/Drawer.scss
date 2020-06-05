@@ -1,0 +1,21 @@
+.drawer {
+  width: 375px;
+  min-height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  background-color: #fafafa;
+  box-shadow: 0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
+}
+
+.drawer__header {
+  background-color: #fff;
+  height: 5.5rem;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}

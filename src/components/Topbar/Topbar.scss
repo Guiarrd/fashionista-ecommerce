@@ -1,5 +1,3 @@
-/* ########################## TOPbar ######################### */
-
 .topbar {
 	background-color: #fff;
 	height: 56px;
@@ -17,6 +15,11 @@
 
 .topbar__group {
 	align-self: center;
+	display: flex;
+}
+
+.topbar__icon {
+	position: relative;
 }
 
 .topbar__logo {

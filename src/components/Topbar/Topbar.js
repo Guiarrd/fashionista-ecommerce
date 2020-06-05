@@ -1,4 +1,6 @@
-import React from 'react';
+import React from 'react'
+import ItemCounter from '../ItemCounter'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
@@ -18,6 +20,7 @@ const Topbar = () => {
           </button>
           <button className="topbar__icon">
             <FontAwesomeIcon icon={faShoppingBag} />
+            <ItemCounter />
           </button>
         </div>
       </div>

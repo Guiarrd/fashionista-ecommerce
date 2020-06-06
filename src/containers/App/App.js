@@ -1,8 +1,9 @@
 import React from 'react';
 import Topbar from '../../components/Topbar'
+import Drawer from '../Drawer'
+
 import Routes from '../../routes'
 import { BrowserRouter } from 'react-router-dom';
-import ProductProfile from '../ProductProfile'
 
 import './App.scss';
 
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Topbar />
         <Routes />
+        <Drawer />
       </BrowserRouter>
     </div>
   );

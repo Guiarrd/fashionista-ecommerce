@@ -1,4 +1,5 @@
 import React from 'react'
+import Cart from '../../components/Cart'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -20,6 +21,9 @@ const Drawer = () => {
           </div>
         </div>
       </header>
+      <div className="drawer__content">
+        <Cart />
+      </div>
     </div>
   )
 }

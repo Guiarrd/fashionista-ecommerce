@@ -40,7 +40,27 @@ a {
 .app {
 	width: 100%;
 	display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
+	overflow-y: hidden;
+	transition: opacity 225ms;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+
+.app--drawer-show {
+	&:before {
+		backface-visibility: visible;
+		background-color: rgba(0, 0, 0, 0.7);
+		bottom: 0;
+		content: "";
+		height: 100vh;
+		opacity: .75;
+		pointer-events: all;
+		position: fixed;
+		right: 0;
+		visibility: visible;
+		width: 100vw;
+		z-index: 15;
+	}
 }
 
 .container {

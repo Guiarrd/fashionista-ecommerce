@@ -1,11 +1,25 @@
 import React from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+
 import './Drawer.scss'
 
 const Drawer = () => {
   return (
     <div className="drawer">
-      <header className="drawer__header"></header>
+      <header className="drawer__header">
+        <div className="header__content">
+          <div className="header__icons">
+            <button className="header__icon">
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+          </div>
+          <div className="header__title">
+            <span>Sacola (0)</span>
+          </div>
+        </div>
+      </header>
     </div>
   )
 }

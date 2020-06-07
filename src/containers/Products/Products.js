@@ -1,19 +1,25 @@
 import React from 'react';
 import Product from '../../components/Product'
-import { Link } from 'react-router-dom';
 
 import './Products.scss'
 
-const Products = () => {
+const Products = ({ products }) => {
+  const getTotalItems = () => `${products.length} itens`
+  
   return (
     <div className="products">
       <div className="container">
         <div className="products__count">
-          <span>22 itens</span>
+          <span>{getTotalItems()}</span>
         </div>
-        <Link to="/produto">
-          <Product />
-        </Link>
+        <section className="product__list">
+          {products && products.map(product => 
+            <Product 
+              {...product}
+              key={product.code_color}
+            />
+          )}
+        </section>
       </div>
     </div>
   )

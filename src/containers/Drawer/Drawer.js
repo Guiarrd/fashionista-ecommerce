@@ -6,9 +6,9 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import './Drawer.scss'
 
-const Drawer = () => {
+const Drawer = ({isVisible}) => {
   return (
-    <div className="drawer">
+    <div className={`drawer${isVisible ? ' drawer--is-visible' : ''}`}>
       <header className="drawer__header">
         <div className="header__content">
           <div className="header__icons">

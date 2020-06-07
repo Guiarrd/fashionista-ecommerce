@@ -2,16 +2,21 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  a {
+    width: 25%;
+  }
 }
 
 .product {
   width: 100%;
-  margin: 0 2.5px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .product__header {
+  position: relative;
   width: 100%;
 }
 .product__image {
@@ -20,6 +25,16 @@
   img {
     width: 100%;
   }
+}
+
+.product__on-sale {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #212529;
+  color: #fff;
+  padding: 0 5px;
+  font-weight: bold;
 }
 
 .product__info {

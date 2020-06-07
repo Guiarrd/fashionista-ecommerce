@@ -1,39 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Product.scss'
 
-const Product = () => {
+const Product = ({image, name, regular_price, actual_price, on_sale, discount_percentage}) => {
+  const hasDiscount = on_sale ? 'regular__price--has-discount' : ''
+  const imgNotFound = require('../../assets/img/not-found.png')
+  
   return (
-    <section className="product__list">
+    <Link to="/produto">
       <article className="product">
         <header className="product__header">
           <figure className="product__image">
-            <img src="https://viniciusvinna.netlify.app/assets/api-fashionista/20002605_615_catalog_1.jpg" alt="Produto Info" />
+            <img src={image || imgNotFound} alt={name} />
           </figure>
+          {on_sale && 
+            <sup className="product__on-sale">
+              <span>{discount_percentage}</span>
+            </sup>
+          }
         </header>
         <div className="product__info">
-          <span className="product__name">VESTIDO TRANSPASSE BOW</span>
+          <span className="product__name">{name}</span>
         </div>
         <div className="product__prices">
-          <span className="regular__price">R$ 199,90</span>
+          <span className={`regular__price ${hasDiscount}`}>{regular_price}</span>
+          {on_sale && <span className="actual__price">{actual_price}</span>}
         </div>
       </article>
-
-      <article className="product">
-        <header className="product__header">
-          <figure className="product__image">
-            <img src="https://viniciusvinna.netlify.app/assets/api-fashionista/20002570_002_catalog_1.jpg" alt="Produto Info" />
-          </figure>
-        </header>
-        <div className="product__info">
-          <span className="product__name">REGATA ALCINHA FOLK</span>
-        </div>
-        <div className="product__prices">
-          <span className="regular__price regular__price--has-discount">R$ 199,90</span>
-          <span className="actual__price">R$ 99,90</span>
-        </div>
-      </article>
-    </section>
+    </Link>
   )
 }
 

@@ -9,6 +9,18 @@
   flex-direction: row;
   background-color: #fafafa;
   box-shadow: 0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+}
+
+.drawer--is-visible {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .drawer__header {

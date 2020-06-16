@@ -13,10 +13,10 @@ const Products = ({ products }) => {
           <span>{getTotalItems()}</span>
         </div>
         <section className="product__list">
-          {products && products.map(product => 
+          {products && products.map((product, index) => 
             <Product 
               {...product}
-              key={product.code_color}
+              key={index}
             />
           )}
         </section>

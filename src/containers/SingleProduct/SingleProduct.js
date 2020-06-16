@@ -1,28 +1,55 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+
+import { loadProductRequest, loadProductSuccess, loadProductsError } from '../../actions'
 
 import './SingleProduct.scss';
 
 const SingleProduct = () => {
+  const { products } = useSelector(state => state)
+  const { name } = useParams()
+  const dispatch = useDispatch()
+  const productName = name.split('-').join(' ')
+  const product = products.items.find(item => item.name.toLowerCase() === productName)
+  
+  useEffect(() => {
+    if (product) {
+      dispatch(loadProductSuccess(product))
+    } else {
+      dispatch(loadProductsError("Produto não encontrado!"))
+    }
+    
+  }, [dispatch, product])
+
+  const imgNotFound = require('../../assets/img/not-found.png')
+  const hasDiscount = product.on_sale ? 'regular__price--has-discount' : ''
+  
   return (
     <section className="singleProduct">
       <article className="container">
         <header className="singleProduct__header">
           <figure className="singleProduct__image">
-            <img src="https://viniciusvinna.netlify.app/assets/api-fashionista/20002605_615_catalog_1.jpg" alt="Product Info" />
+            <img src={product.image || imgNotFound} alt={product.name} />
           </figure>
         </header>
         <div className="singleProduct__detail">
-          <h3 className="singleProduct__name">VESTIDO TRANSPASSE BOW</h3>
+          <h3 className="singleProduct__name">{product.name}</h3>
           <div className="singleProduct__prices">
-            <span className="regular__price">R$ 199,90</span>
-            <span className="num__parcelas">em até 3x de R$ 66,63</span>
+            <span className={`regular__price ${hasDiscount}`}>{product.regular_price}</span>
+            {product.on_sale && <span className="actual__price" style={{'marginLeft': '5px'}}>{product.actual_price}</span>}
+            <span className="num__parcelas">em até {product.installments}</span>
           </div>
           <div className="singleProduct__sizes">
             <p className="singleProduct__sizes__title">Escolha o tamanho</p>
             <div className="sizes__btn__group">
-              <button type="button" className="size__btn">P</button>
-              <button type="button" className="size__btn size__btn--selected">M</button>
-              <button type="button" className="size__btn">G</button>
+              {product.sizes
+                .filter(item => item.available === true)
+                .map(size => (
+                  <button key={size.sku} type='button' className='size__btn'>{size.size}</button>
+                ))
+              }
             </div>
           </div>
           <div className="singleProduct__actions">

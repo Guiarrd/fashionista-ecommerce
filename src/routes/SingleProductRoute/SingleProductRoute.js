@@ -1,9 +1,10 @@
 import React from 'react';
+
 import SingleProduct from '../../containers/SingleProduct'
 
 import './SingleProductRoute.scss';
 
-const SingleProductRoute = () => {
+const SingleProductRoute = () => {  
   return (
     <div className="product__route">
       <div className="container">

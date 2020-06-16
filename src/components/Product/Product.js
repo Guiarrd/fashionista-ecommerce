@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import slugify from 'slugify'
 
 import './Product.scss'
 
 const Product = ({image, name, regular_price, actual_price, on_sale, discount_percentage}) => {
   const hasDiscount = on_sale ? 'regular__price--has-discount' : ''
   const imgNotFound = require('../../assets/img/not-found.png')
-  
+
   return (
-    <Link to="/produto">
+    <Link to={`/produto/${slugify(name, {lower: true})}`}>
       <article className="product">
         <header className="product__header">
           <figure className="product__image">
